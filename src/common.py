@@ -66,15 +66,14 @@ TEXT_GENERATION_PIPELINE = pipeline(
     model=MODEL,
     tokenizer=TOKENIZER,
     task="text-generation",
-    model_kwargs={"torch_dtype": torch.bfloat16},
     device_map="auto",
 )
 TEXT_GENERATION_PIPELINE.tokenizer
 
 PIPELINE_INFERENCE_ARGS = {
-    "max_new_tokens": 512,
+    "max_new_tokens": 256,
     "eos_token_id": TERMINATORS,
     "do_sample": True,
-    "temperature": 0.2,
+    "temperature": 0.1,
     "top_p": 0.9,
 }

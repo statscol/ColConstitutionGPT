@@ -22,7 +22,7 @@ db = FAISS.from_texts(
 )
 
 # Use the top-k most relevant docs
-retriever = db.as_retriever(search_kwargs={"k": 3})
+retriever = db.as_retriever()
 parser = StrOutputParser()
 
 # Create prompt from prompt template
@@ -43,6 +43,7 @@ def run_qa(chain: RunnableSequence, retriever: VectorStoreRetriever, question: s
 
 
 if __name__ == "__main__":
-    question = """Indicame en la reforma pensional qué va a pasar con los fondos
-      en el pilar contributivo de prima media, podré pedir el dinero de vuelta?"""
+    question = """indicame qué va a pasar en la reforma pensional con los fondos en el pilar
+    contributivo de prima media, podré pedir el dinero de vuelta cuando tenga la edad si no
+    cumplo con las semanas cotizadas?"""
     print(run_qa(rag_chain, retriever, question))

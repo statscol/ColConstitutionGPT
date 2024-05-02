@@ -36,6 +36,7 @@ def rag_chatbot(prompt: str, k: int = 2):
 if __name__ == "__main__":
     # example RAG Pipeline using HuggingFace
     DATA = DATA.add_faiss_index("embedding")
-    prompt = """indicame si en la reforma pensional qué va a pasar con los fondos en
-      el pilar contributivo de prima media, podré pedir el dinero de vuelta?"""
+    prompt = """indicame qué va a pasar en la reforma pensional con los fondos en el pilar
+    contributivo de prima media, podré pedir el dinero de vuelta cuando tenga la edad si no
+    cumplo con las semanas cotizadas?"""
     print(rag_chatbot(prompt, k=3))

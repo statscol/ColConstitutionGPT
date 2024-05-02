@@ -25,8 +25,12 @@ For more details see ```src/preprocessing.py```
 - HuggingFace
 See ```src/inference_hf.py```
 
+![img](./data/hf-demo.png)
+
 - Langchain
 See ```src/inference_langchain.py```
+
+<img src="./data/lang-demo.png" width="680">
 
 
 ### Demo
