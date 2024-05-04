@@ -18,3 +18,5 @@ LANGC_PROMPT_TEMPLATE = """
     Contexto: {context}
     Pregunta: {question}
     Respuesta:"""
+
+DEFAULT_BOT_MESSAGE = "Hola! Soy un chatbot construido con LLama3 para responder preguntas de la reforma pensional. Haz las preguntas que desees"

@@ -35,7 +35,7 @@ See ```src/inference_langchain.py```
 
 ### Demo
 
-WIP
+A Gradio app can be started using ```python src/app.py```
 
 ## 🤿 Contributing to this repo
 

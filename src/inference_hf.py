@@ -25,12 +25,17 @@ def generate(formatted_prompt):
     return TOKENIZER.decode(response[input_ids.shape[-1] :], skip_special_tokens=True)
 
 
-def rag_chatbot(prompt: str, k: int = 2):
+def rag_chatbot(prompt: str, k: int = 2, return_user: bool = False):
     _, retrieved_documents = search_topk(
         DATA, FEATURE_EXTRACTOR, prompt, k, embedding_col="embedding"
     )
     formatted_prompt = format_prompt(prompt, retrieved_documents, k, text_col="chunk")
-    return f"[USER]: {prompt}\n\n[ASSISTANT]: {generate(formatted_prompt)}"
+    bot_response = generate(formatted_prompt)
+    return (
+        f"[USER]: {prompt}\n\n[ASSISTANT]: {bot_response}"
+        if return_user
+        else bot_response
+    )
 
 
 if __name__ == "__main__":
@@ -39,4 +44,4 @@ if __name__ == "__main__":
     prompt = """indicame qué va a pasar en la reforma pensional con los fondos en el pilar
     contributivo de prima media, podré pedir el dinero de vuelta cuando tenga la edad si no
     cumplo con las semanas cotizadas?"""
-    print(rag_chatbot(prompt, k=3))
+    print(rag_chatbot(prompt, k=3, return_user=True))
